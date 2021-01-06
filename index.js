@@ -75,7 +75,11 @@ async function authenticate(url,email,password){
   if(passwordInputFlag){
     console.log("ingresando password")
       await page.type('input[name="password"]',password);
+
+        console.log("Contrasenia ingresada")
+      await page.waitFor(2000)
       await page.click('div#passwordNext');
+      console.log("Click en siguiente")
       
       await page.waitForNavigation();
       let accessToken = await page.evaluate(()=>{
